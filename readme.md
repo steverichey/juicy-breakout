@@ -1,9 +1,8 @@
-Juicy Breakout
-==============
+## Juicy Breakout
 
 A juicy game feels alive and responds to everything you do tons of cascading action and response for minimal user input.
 
-A port of Martin Jonasson & Petri Purho's Juicy Breakout for the [*Juice It Or Lose It*](http://www.youtube.com/watch?v=Fy0aCDmgnxg) talk at Nordic Game Indie Night, ported to [HaxeFlixel](http://www.haxeflixel.com) by [Steve Richey](https://github.com/steverichey).
+This is a port of [Martin Jonasson](https://github.com/grapefrukt) & [Petri Purho](https://github.com/gummikana)'s Juicy Breakout for the [*Juice It Or Lose It*](http://www.youtube.com/watch?v=Fy0aCDmgnxg) talk at [Nordic Game Indie Night](http://nordicgame.com/) to [HaxeFlixel](http://www.haxeflixel.com) by [Steve Richey](https://github.com/steverichey).
 
 You can try the original game [here](http://grapefrukt.com/f/games/juicy-breakout/).
 
