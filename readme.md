@@ -1,11 +1,11 @@
 Juicy Breakout
 ==============
 
+A juicy game feels alive and responds to everything you do tons of cascading action and response for minimal user input.
+
 A port of Martin Jonasson & Petri Purho's Juicy Breakout for the [*Juice It Or Lose It*](http://www.youtube.com/watch?v=Fy0aCDmgnxg) talk at Nordic Game Indie Night, ported to [HaxeFlixel](http://www.haxeflixel.com) by [Steve Richey](https://github.com/steverichey).
 
 You can try the original game [here](http://grapefrukt.com/f/games/juicy-breakout/).
-
-A juicy game feels alive and responds to everything you do tons of cascading action and response for minimal user input. 
 
 ## References:
 
@@ -19,10 +19,7 @@ A juicy game feels alive and responds to everything you do tons of cascading act
 
 [The Art of Diablo 3 ](http://gdcvault.com/play/1015306/The-Art-of-Diablo)
 
-Easing related:
-https://www.evernote.com/shard/s1/note/c1b7f010-4564-46d9-a8c2-083d8e014b93/c...
-http://blogs.msdn.com/b/shawnhar/archive/2007/05/03/transitions-part-one-the-...
-http://www.timotheegroleau.com/Flash/experiments/easing_function_generator.htm
+[Tim Groleau's Easing Function Generator](http://www.timotheegroleau.com/Flash/experiments/easing_function_generator.htm)
 
 ## License
 
