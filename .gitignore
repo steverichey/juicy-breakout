@@ -1,5 +1,1 @@
-bin/
-obj/
-*.swf
-dropbox.sh
-reversedropbox.sh
+export/
