@@ -12,8 +12,6 @@ class Effects
 	public static var tweenInDuration:Float = .7;
 	public static var tweenInEquation:Int = 0;
 	
-	public static var paddleStretch:Bool = false;
-	
 	public static var ballExtraScale:Bool = false;
 	public static var ballRotate:Bool = false;
 	public static var ballRotateAnimated:Bool = false;
@@ -55,6 +53,7 @@ class Effects
 	public static var freezeFadeInMS:Int = 0;
 	public static var freezeFadeOutMS:Int = 0;
 	
+	public static var paddleStretch:Bool = false;
 	public static var paddleFace:Bool = false;
 	public static var paddleLookAtBall:Bool = false;
 	public static var paddleSmile:Int = 0;
@@ -68,6 +67,4 @@ class Effects
 	public static var blockShatterForce:Float = 2;
 	
 	public static var bouncyLinesStrength:Float = 10;
-	public static var bouncyLinesDistanceFromWall:Float = 5;
-	public static var bouncyLinesWidth:Float = 20;
 }
