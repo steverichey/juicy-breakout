@@ -4,6 +4,8 @@ class Effects
 {
 	public static var screenColors:Bool = false;
 	public static var screenColorGlitch:Bool = false;
+	public static var screenShake:Bool = false;
+	public static var screenShakePower:Float = 0.005;
 	
 	public static var tweenInEnabled:Bool = false;
 	public static var tweenInPropertyY:Bool = true;
@@ -45,9 +47,6 @@ class Effects
 	public static var ballTrail:Bool = false;
 	public static var ballTrailScale:Bool = true;
 	public static var ballTrailLength:Int = 30;
-	
-	public static var screenShake:Bool = false;
-	public static var screenShakePower:Float = .5;
 	
 	public static var freezeDuration:Int = 0;
 	public static var freezeSpeedMultiplier:Float = 0;

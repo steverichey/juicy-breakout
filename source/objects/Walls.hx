@@ -19,5 +19,7 @@ class Walls extends FlxTypedGroup<Line>
 		add(new Line(FlxG.width / 2, 0, FlxG.width, wid));
 		// right line
 		add(new Line(FlxG.width, FlxG.height / 2, wid, FlxG.height));
+		// bottom line, never bounces
+		add(new Line(FlxG.width / 2, FlxG.height + wid / 2, FlxG.width, wid, true));
 	}
 }

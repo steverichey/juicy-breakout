@@ -17,12 +17,6 @@ class Ball extends GameObject
 	
 	override public function update():Void
 	{
-		if (y > FlxG.height - height)
-		{
-			y = FlxG.height - height;
-			velocity.y *= -1;
-		}
-		
 		updateColor(Settings.COLOR_BALL);
 		
 		super.update();

@@ -4,9 +4,13 @@ import flixel.FlxSprite;
 
 class Line extends GameObject
 {
-	public function new(X:Float, Y:Float, Width:Int, Height:Int)
+	private var neverBounce:Bool = false;
+	
+	public function new(X:Float, Y:Float, Width:Int, Height:Int, NeverBounce:Bool = false)
 	{
 		super(X, Y, Width, Height);
+		
+		neverBounce = NeverBounce;
 	}
 	
 	override public function update():Void

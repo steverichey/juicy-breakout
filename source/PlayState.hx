@@ -10,6 +10,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
+import objects.GameObject;
 
 import emitters.ConfettiEmitter;
 import emitters.ImpactEmitter;
@@ -62,8 +63,9 @@ class PlayState extends FlxState
 		_collidables = new FlxGroup();
 		_collidables.add(_paddle);
 		_collidables.add(_walls);
+		_collidables.add(_blocks);
 		
-		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[2] Reset    [TAB] Menu    [Enter] Toggle All", 16);
+		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[TAB] Menu    [Enter] Toggle All    [Space] Reset    [B] Ball", 16);
 		_info.alignment = "right";
 		_info.alpha = 0.5;
 		
@@ -80,11 +82,10 @@ class PlayState extends FlxState
 
 	override public function update():Void
 	{
-		FlxG.collide(_balls, _collidables);
-		FlxG.collide(_balls, _blocks, ballHitBlock);
+		FlxG.collide(_balls, _collidables, ballBounce);
 		
 		#if !FLX_NO_KEYBOARD
-		if (FlxG.keys.justPressed.TWO)
+		if (FlxG.keys.justPressed.SPACE)
 		{
 			FlxG.resetGame();
 		}
@@ -98,6 +99,11 @@ class PlayState extends FlxState
 		{
 			toggleAll();
 		}
+		
+		if (FlxG.keys.justPressed.B)
+		{
+			addBall();
+		}
 		#end
 		
 		_info.color = Effects.screenColors ? FlxColor.BLACK : FlxColor.WHITE;
@@ -105,10 +111,18 @@ class PlayState extends FlxState
 		super.update();
 	}
 	
-	private function ballHitBlock(ball:Ball, block:Block):Void
+	private function ballBounce(ball:Ball, hit:GameObject):Void
 	{
-		block.kill();
-		_bg.glitchForce = 0.05;
+		if (Std.is(hit, Block))
+		{
+			hit.kill();
+			_bg.glitchForce = 0.05;
+		}
+		
+		if (Effects.screenShake)
+		{
+			FlxG.camera.shake(Effects.screenShakePower, 0.1);
+		}
 	}
 	
 	private function addBall():Void
@@ -122,5 +136,7 @@ class PlayState extends FlxState
 		
 		Effects.screenColors = _toggle;
 		Effects.screenColorGlitch = _toggle;
+		Effects.paddleStretch = _toggle;
+		Effects.screenShake = _toggle;
 	}
 }
