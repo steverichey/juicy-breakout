@@ -1,18 +1,19 @@
 package objects;
 
 import flixel.FlxSprite;
+import flixel.util.FlxColor;
 
-class Block extends FlxSprite
+class Block extends GameObject
 {
-	public function new(X:Float, Y:Float)
+	public function new(X:Float, Y:Float, Width:Int = Settings.BLOCK_WIDTH, Height:Int = Settings.BLOCK_HEIGHT)
 	{
-		super();
+		super(X, Y, Width, Height);
+	}
+	
+	override public function update():Void
+	{
+		updateColor(Settings.COLOR_BLOCK);
 		
-		makeGraphic(Settings.BLOCK_WIDTH, Settings.BLOCK_HEIGHT);
-		
-		x = X - width / 2;
-		y = Y - height / 2;
-		
-		immovable = true;
+		super.update();
 	}
 }

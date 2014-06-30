@@ -3,13 +3,14 @@ package;
 class Effects
 {
 	public static var screenColors:Bool = false;
+	public static var screenColorGlitch:Bool = false;
 	
 	public static var tweenInEnabled:Bool = false;
 	public static var tweenInPropertyY:Bool = true;
 	public static var tweenInPropertyRotation:Bool = false;
 	public static var tweenInPropertyScale:Bool = false;
 	public static var tweenInDelay:Float = 0;
-	public static var tweenInDuration:Float = .7;
+	public static var tweenInDuration:Float = 0.7;
 	public static var tweenInEquation:Int = 0;
 	
 	public static var ballExtraScale:Bool = false;
@@ -60,7 +61,6 @@ class Effects
 	public static var paddleEyeSize:Int = 1;
 	public static var paddleEyeSeparation:Int = 25;
 	
-	public static var screenColorGlitch:Bool = false;
 	public static var slicerBall:Bool = false;
 	
 	public static var blockShatterRotation:Float = 5;

@@ -5,9 +5,11 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.math.FlxRandom;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
+import flixel.util.FlxColor;
 
 import emitters.ConfettiEmitter;
 import emitters.ImpactEmitter;
@@ -17,9 +19,11 @@ import objects.Block;
 import objects.Paddle;
 import objects.Walls;
 import objects.Menu;
+import objects.Background;
 
 class PlayState extends FlxState
 {
+	private var _bg:Background;
 	private var _balls:FlxTypedGroup<Ball>;
 	private var _blocks:FlxTypedGroup<Block>;
 	private var _paddle:Paddle;
@@ -30,12 +34,15 @@ class PlayState extends FlxState
 	private var _menu:Menu;
 	private var _collidables:FlxGroup;
 	private var _info:FlxText;
+	private var _toggle:Bool = false;
 	
 	override public function create():Void
 	{
 		super.create();
 		
 		FlxG.autoPause = false;
+		
+		_bg = new Background();
 		
 		_paddle = new Paddle();
 		
@@ -56,12 +63,13 @@ class PlayState extends FlxState
 		_collidables.add(_paddle);
 		_collidables.add(_walls);
 		
-		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[2] Reset    [TAB] Menu", 16);
+		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[2] Reset    [TAB] Menu    [Enter] Toggle All", 16);
 		_info.alignment = "right";
 		_info.alpha = 0.5;
 		
 		_menu = new Menu();
 		
+		add(_bg);
 		add(_walls);
 		add(_paddle);
 		add(_balls);
@@ -85,7 +93,14 @@ class PlayState extends FlxState
 		{
 			_menu.toggle();
 		}
+		
+		if (FlxG.keys.justPressed.ENTER)
+		{
+			toggleAll();
+		}
 		#end
+		
+		_info.color = Effects.screenColors ? FlxColor.BLACK : FlxColor.WHITE;
 		
 		super.update();
 	}
@@ -93,10 +108,19 @@ class PlayState extends FlxState
 	private function ballHitBlock(ball:Ball, block:Block):Void
 	{
 		block.kill();
+		_bg.glitchForce = 0.05;
 	}
 	
 	private function addBall():Void
 	{
 		_balls.add(new Ball(FlxG.width / 2, FlxG.height / 2 + 100));
+	}
+	
+	private function toggleAll():Void
+	{
+		_toggle = !_toggle;
+		
+		Effects.screenColors = _toggle;
+		Effects.screenColorGlitch = _toggle;
 	}
 }

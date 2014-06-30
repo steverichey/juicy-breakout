@@ -1,22 +1,12 @@
 package objects;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.util.FlxColor;
-import flixel.util.FlxSpriteUtil;
 
-class Paddle extends FlxSprite
+class Paddle extends GameObject
 {
 	public function new()
 	{
-		super(0, Settings.STAGE_HEIGHT - 50);
-		
-		makeGraphic(Settings.PADDLE_WIDTH, Settings.PADDLE_HEIGHT);
-		
-		elasticity = 1;
-		immovable = true;
-		
-		FlxSpriteUtil.screenCenter(this, true, false);
+		super(FlxG.width / 2, Settings.STAGE_HEIGHT - 50, Settings.PADDLE_WIDTH, Settings.PADDLE_HEIGHT);
 	}
 	
 	override public function update():Void
@@ -30,14 +20,7 @@ class Paddle extends FlxSprite
 		}
 		#end
 		
-		if (Effects.screenColors && color == FlxColor.WHITE)
-		{
-			color = Settings.COLOR_PADDLE;
-		}
-		else if (!Effects.screenColors && color != FlxColor.WHITE)
-		{
-			color = FlxColor.WHITE;
-		}
+		updateColor(Settings.COLOR_PADDLE);
 		
 		super.update();
 	}

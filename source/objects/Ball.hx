@@ -1,22 +1,16 @@
 package objects;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.math.FlxAngle;
 import flixel.math.FlxRandom;
 
-class Ball extends FlxSprite
+class Ball extends GameObject
 {
 	public function new(X:Float, Y:Float)
 	{
-		super();
+		super(X, Y, Settings.BALL_SIZE, Settings.BALL_SIZE);
 		
-		makeGraphic(Settings.BALL_SIZE, Settings.BALL_SIZE);
-		
-		x = X - width / 2;
-		y = Y - height / 2;
-		
-		elasticity = 1;
+		immovable = false;
 		
 		velocity.copyFrom(FlxAngle.getCartesianCoords(300, FlxRandom.float(0, 360)));
 	}
@@ -28,6 +22,8 @@ class Ball extends FlxSprite
 			y = FlxG.height - height;
 			velocity.y *= -1;
 		}
+		
+		updateColor(Settings.COLOR_BALL);
 		
 		super.update();
 	}

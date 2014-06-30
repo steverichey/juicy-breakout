@@ -14,10 +14,10 @@ class Walls extends FlxTypedGroup<Line>
 		var wid:Int = Settings.BOUNCY_LINES_WIDTH;
 		
 		// left line
-		add(new Line(dis - wid / 2, 0, wid, FlxG.height));
+		add(new Line(0, FlxG.height / 2, wid, FlxG.height));
 		// top line
-		add(new Line(0, dis - wid / 2, FlxG.width, wid));
+		add(new Line(FlxG.width / 2, 0, FlxG.width, wid));
 		// right line
-		add(new Line(FlxG.width - 20, 0, wid, FlxG.height));
+		add(new Line(FlxG.width, FlxG.height / 2, wid, FlxG.height));
 	}
 }

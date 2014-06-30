@@ -25,11 +25,11 @@ class Settings
 	public static inline var MOUSE_GRAVITY_MAX:Float = .05;
 	public static inline var BALL_VELOCITY_LOSS:Float = .01;
 	
-	public static inline var COLOR_BACKGROUND:FlxColor = 0xF8F2B3;
-	public static inline var COLOR_BLOCK:FlxColor = 0x62bd84;
-	public static inline var COLOR_BALL:FlxColor = 0xd26635;
-	public static inline var COLOR_PADDLE:FlxColor = 0xCF3746;
-	public static inline var COLOR_TRAIL:FlxColor = 0xf7d37a;
-	public static inline var COLOR_SPARK:FlxColor = 0xeba17f;
-	public static inline var COLOR_BOUNCY_LINES:FlxColor = 0x88D1A3;
+	public static inline var COLOR_BACKGROUND:FlxColor = 0xffF8F2B3;
+	public static inline var COLOR_BLOCK:FlxColor = 0xff62bd84;
+	public static inline var COLOR_BALL:FlxColor = 0xffd26635;
+	public static inline var COLOR_PADDLE:FlxColor = 0xffCF3746;
+	public static inline var COLOR_TRAIL:FlxColor = 0xfff7d37a;
+	public static inline var COLOR_SPARK:FlxColor = 0xffeba17f;
+	public static inline var COLOR_BOUNCY_LINES:FlxColor = 0xff88D1A3;
 }
