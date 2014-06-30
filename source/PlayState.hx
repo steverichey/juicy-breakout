@@ -150,10 +150,19 @@ class PlayState extends FlxState
 	{
 		_toggle = !_toggle;
 		
+		// Screen FX
+		
 		Effects.screenColors = _toggle;
 		Effects.screenColorGlitch = _toggle;
-		Effects.paddleStretch = _toggle;
 		Effects.screenShake = _toggle;
+		
+		// Tweens, etc
+		
+		Effects.paddleStretch = _toggle;
+		Effects.tweenInEnabled = _toggle;
+		Effects.tweenInPropertyY = _toggle;
+		Effects.tweenInPropertyScale = _toggle;
+		Effects.tweenInPropertyRotation = _toggle;
 		
 		// Sound FX
 		
