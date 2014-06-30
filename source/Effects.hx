@@ -1,4 +1,6 @@
 package;
+import flixel.FlxG;
+import flixel.system.FlxSound;
 
 class Effects
 {
@@ -6,6 +8,7 @@ class Effects
 	public static var screenColorGlitch:Bool = false;
 	public static var screenShake:Bool = false;
 	public static var screenShakePower:Float = 0.005;
+	public static var screenShakeDuration:Float = 0.1;
 	
 	public static var tweenInEnabled:Bool = false;
 	public static var tweenInPropertyY:Bool = true;
@@ -30,7 +33,7 @@ class Effects
 	public static var soundWall:Bool = false;
 	public static var soundBlock:Bool = false;
 	public static var soundPaddle:Bool = false;
-	public static var soundMusic:Bool = false;
+	public static var soundMusic(default, set):Bool = false;
 	
 	public static var particleBallCollision:Bool = false;
 	public static var particleBlockShatter:Bool = false;
@@ -66,4 +69,31 @@ class Effects
 	public static var blockShatterForce:Float = 2;
 	
 	public static var bouncyLinesStrength:Float = 10;
+	
+	// Toggling music plays it or pauses it
+	private static inline function set_soundMusic(Play:Bool):Bool
+	{
+		if (Play)
+		{
+			if (_music != null)
+			{
+				_music.play();
+			}
+			else
+			{
+				_music = FlxG.sound.load("assets/music/juicy_breakout-theme" + Settings.EXT, 1, true).play();
+			}
+		}
+		else
+		{
+			if (_music != null)
+			{
+				_music.pause();
+			}
+		}
+		
+		return Play;
+	}
+	
+	private static var _music:FlxSound;
 }

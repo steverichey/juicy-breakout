@@ -1,6 +1,7 @@
 package objects;
 
 import flixel.FlxG;
+import objects.GameObject.GameObjectType;
 
 class Paddle extends GameObject
 {
@@ -11,6 +12,7 @@ class Paddle extends GameObject
 		super(FlxG.width / 2, Settings.STAGE_HEIGHT - 50, Settings.PADDLE_WIDTH, Settings.PADDLE_HEIGHT);
 		
 		centerOffsets();
+		objectType = GameObjectType.PADDLE;
 		
 		#if !FLX_NO_MOUSE
 		x = FlxG.mouse.x - width / 2;

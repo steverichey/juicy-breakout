@@ -1,6 +1,7 @@
 package objects;
 
 import flixel.FlxSprite;
+import objects.GameObject.GameObjectType;
 
 class Line extends GameObject
 {
@@ -11,6 +12,7 @@ class Line extends GameObject
 		super(X, Y, Width, Height);
 		
 		neverBounce = NeverBounce;
+		objectType = GameObjectType.LINE;
 	}
 	
 	override public function update():Void

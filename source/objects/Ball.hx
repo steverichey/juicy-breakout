@@ -3,6 +3,7 @@ package objects;
 import flixel.FlxG;
 import flixel.math.FlxAngle;
 import flixel.math.FlxRandom;
+import objects.GameObject.GameObjectType;
 
 class Ball extends GameObject
 {
@@ -11,6 +12,7 @@ class Ball extends GameObject
 		super(X, Y, Settings.BALL_SIZE, Settings.BALL_SIZE);
 		
 		immovable = false;
+		objectType = GameObjectType.BALL;
 		
 		velocity.copyFrom(FlxAngle.getCartesianCoords(300, FlxRandom.float(0, 360)));
 	}

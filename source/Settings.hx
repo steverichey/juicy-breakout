@@ -32,4 +32,10 @@ class Settings
 	public static inline var COLOR_TRAIL:FlxColor = 0xfff7d37a;
 	public static inline var COLOR_SPARK:FlxColor = 0xffeba17f;
 	public static inline var COLOR_BOUNCY_LINES:FlxColor = 0xff88D1A3;
+	
+	#if flash
+	public static inline var EXT:String = ".mp3";
+	#else
+	public static inline var EXT:String = ".ogg";
+	#end
 }

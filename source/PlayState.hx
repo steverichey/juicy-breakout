@@ -21,6 +21,7 @@ import objects.Paddle;
 import objects.Walls;
 import objects.Menu;
 import objects.Background;
+import objects.Line;
 
 class PlayState extends FlxState
 {
@@ -113,15 +114,30 @@ class PlayState extends FlxState
 	
 	private function ballBounce(ball:Ball, hit:GameObject):Void
 	{
-		if (Std.is(hit, Block))
+		if (hit.objectType == GameObjectType.BLOCK)
 		{
 			hit.kill();
 			_bg.glitchForce = 0.05;
+			
+			if (Effects.soundBlock)
+			{
+				FlxG.sound.play("assets/sounds/pling1" + Settings.EXT);
+			}
+		}
+		
+		if (hit.objectType == GameObjectType.PADDLE && Effects.soundPaddle)
+		{
+			FlxG.sound.play("assets/sounds/ball-paddle" + Settings.EXT);
+		}
+		
+		if (hit.objectType == GameObjectType.LINE && Effects.soundWall)
+		{
+			FlxG.sound.play("assets/sounds/ball-wall" + Settings.EXT);
 		}
 		
 		if (Effects.screenShake)
 		{
-			FlxG.camera.shake(Effects.screenShakePower, 0.1);
+			FlxG.camera.shake(Effects.screenShakePower, Effects.screenShakeDuration);
 		}
 	}
 	
@@ -138,5 +154,12 @@ class PlayState extends FlxState
 		Effects.screenColorGlitch = _toggle;
 		Effects.paddleStretch = _toggle;
 		Effects.screenShake = _toggle;
+		
+		// Sound FX
+		
+		Effects.soundBlock = _toggle;
+		Effects.soundMusic = _toggle;
+		Effects.soundPaddle = _toggle;
+		Effects.soundWall = _toggle;
 	}
 }
