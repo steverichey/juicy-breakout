@@ -27,8 +27,6 @@ class Trail extends FlxSprite
 		//graphics = new Graphics();
 		
 		target = Target;
-		
-		trace("okay");
 	}
 	
 	override public function update():Void
