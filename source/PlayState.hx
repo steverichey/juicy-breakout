@@ -114,6 +114,8 @@ class PlayState extends FlxState
 	
 	private function ballBounce(ball:Ball, hit:GameObject):Void
 	{
+		ball.bounce();
+		
 		if (hit.objectType == GameObjectType.BLOCK)
 		{
 			hit.kill();
@@ -163,6 +165,16 @@ class PlayState extends FlxState
 		Effects.tweenInPropertyY = _toggle;
 		Effects.tweenInPropertyScale = _toggle;
 		Effects.tweenInPropertyRotation = _toggle;
+		
+		// Balls
+		
+		Effects.ballExtraScale = _toggle;
+		Effects.ballGlow = _toggle;
+		Effects.ballRotate = _toggle;
+		Effects.ballRotateAnimated = _toggle;
+		Effects.ballStretch = _toggle;
+		Effects.ballStretchAnimated = _toggle;
+		Effects.ballTrail = _toggle;
 		
 		// Sound FX
 		

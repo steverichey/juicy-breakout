@@ -25,8 +25,10 @@ class Effects
 	public static var ballStretch:Bool = false;
 	public static var ballStretchAnimated:Bool = false;
 	public static var ballGlow:Bool = false;
-	
 	public static var ballGravity:Float = 0;
+	public static var ballTrail:Bool = false;
+	public static var ballTrailScale:Bool = true;
+	public static var ballTrailLength:Int = 30;
 	
 	public static var blockJelly:Bool = false;
 	public static var bouncyLinesEnabled:Bool = false;
@@ -47,10 +49,6 @@ class Effects
 	public static var blockRotate:Bool = false;
 	public static var blockDarken:Bool = false;
 	public static var blockShatter:Bool = false;
-	
-	public static var ballTrail:Bool = false;
-	public static var ballTrailScale:Bool = true;
-	public static var ballTrailLength:Int = 30;
 	
 	public static var freezeDuration:Int = 0;
 	public static var freezeSpeedMultiplier:Float = 0;
