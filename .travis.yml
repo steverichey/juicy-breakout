@@ -1,0 +1,33 @@
+language: java
+
+env: 
+  - TARGET=flash
+  global:
+    - GH_REF: 'https://github.com/steverichey/juicy-breakout.git'
+    - secure: 'dOAUt+OvqOgJcu/keRFuNiSQQ+pG+1wv9Rs1LEfJUMAvNxOQqCE2ndHcZgDjJ5bw9Ten5Ct7r7pji+01
+vdHKAF8NKdh7VSGZonLcQHX5qVzRiJToFyut+fhz7mC60FKXlJ/xSO1NmcktRnc3WZjQUPZo161Tkxrn
+leFk05QElCk='
+
+before_install:
+  - sudo add-apt-repository ppa:eyecreate/haxe -y
+  - sudo apt-get update
+  - sudo apt-get install haxe -y
+  - sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch
+  - mkdir ~/haxelib
+  - haxelib -notimeout setup ~/haxelib 
+  - haxelib -notimeout install munit
+  - haxelib -notimeout install lime
+  - haxelib -notimeout install lime-tools
+  - haxelib -notimeout run lime install openfl
+  - haxelib dev flixel .
+
+script:
+  - lime build flash
+  - cp export/flash/bin/juice.swf page/juice.swf
+  - cd page
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "travis"
+  - git init
+  - git add -A
+  - git commit -m 'Build successful, build $TRAVIS_BUILD_NUMBER pushed to gh-pages'
+  - git push --force --quiet 'https://${GH_TOKEN}@${GH_REF}' master:gh-pages > /dev/null 2>&1
