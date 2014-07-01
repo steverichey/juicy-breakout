@@ -1,12 +1,11 @@
 language: java
 
-env: 
-  - TARGET=flash
+env:
   global:
-    - GH_REF: 'https://github.com/steverichey/juicy-breakout.git'
-    - secure: 'dOAUt+OvqOgJcu/keRFuNiSQQ+pG+1wv9Rs1LEfJUMAvNxOQqCE2ndHcZgDjJ5bw9Ten5Ct7r7pji+01
-vdHKAF8NKdh7VSGZonLcQHX5qVzRiJToFyut+fhz7mC60FKXlJ/xSO1NmcktRnc3WZjQUPZo161Tkxrn
-leFk05QElCk='
+  - GH_REF: github.com/steverichey/juicy-breakout.git
+  - secure: fcICHJserO0csTjKJ+3XzHMP8Bp9ckxuE3jDRIN5QsZGongwzmSSpp+6cpkrsxcxKE9AN
+hHyi6rfDAoRGfaTZeCwbvrFC2/p6Wi9hB+uE5iazruHAcKpkaPclyowiWXxhWcBj9llbFMSv2ncALMY5
+/wN628FVxXZ3JG5RnK01/w=
 
 before_install:
   - sudo add-apt-repository ppa:eyecreate/haxe -y
