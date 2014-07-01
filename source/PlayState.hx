@@ -77,7 +77,7 @@ class PlayState extends FlxState
 		_menu = new Menu();
 		
 		add(_bg);
-		add(_trails);
+		//add(_trails);
 		add(_walls);
 		add(_paddle);
 		add(_balls);
