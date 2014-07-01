@@ -15,27 +15,7 @@ class Block extends GameObject
 		
 		objectType = GameObjectType.BLOCK;
 		
-		if (Effects.tweenInEnabled)
-		{
-			if (Effects.tweenInPropertyY)
-			{
-				y = -height * 2;
-				FlxTween.tween(this, { y:Y }, Effects.tweenInDuration + FlxRandom.float(-0.2, 0.2), { ease:FlxEase.elasticOut } );
-			}
-			
-			if (Effects.tweenInPropertyScale)
-			{
-				angle = FlxRandom.float( -45, 45);
-				FlxTween.tween(this, { angle:0 }, Effects.tweenInDuration + FlxRandom.float(-0.2, 0.2), { ease:FlxEase.cubeOut } );
-			}
-			
-			if (Effects.tweenInPropertyScale)
-			{
-				var initialScale:Float = FlxRandom.float(0.1, 0.3);
-				scale.set(initialScale, initialScale);
-				FlxTween.tween(this.scale, { x:1, y:1 }, Effects.tweenInDuration + FlxRandom.float(-0.2, 0.2), { ease:FlxEase.bounceOut } );
-			}
-		}
+		tweenIn(X, Y);
 	}
 	
 	override public function update():Void

@@ -22,12 +22,14 @@ import objects.Walls;
 import objects.Menu;
 import objects.Background;
 import objects.Line;
+import effects.Trail;
 
 class PlayState extends FlxState
 {
 	private var _bg:Background;
 	private var _balls:FlxTypedGroup<Ball>;
 	private var _blocks:FlxTypedGroup<Block>;
+	private var _trails:FlxTypedGroup<Trail>;
 	private var _paddle:Paddle;
 	private var _walls:Walls;
 	private var _confetti:ConfettiEmitter;
@@ -37,6 +39,7 @@ class PlayState extends FlxState
 	private var _collidables:FlxGroup;
 	private var _info:FlxText;
 	private var _toggle:Bool = false;
+	private var _paused:Bool = false;
 	
 	override public function create():Void
 	{
@@ -49,6 +52,7 @@ class PlayState extends FlxState
 		_paddle = new Paddle();
 		
 		_balls = new FlxTypedGroup<Ball>();
+		_trails = new FlxTypedGroup<Trail>();
 		addBall();
 		
 		_blocks = new FlxTypedGroup<Block>();
@@ -66,13 +70,14 @@ class PlayState extends FlxState
 		_collidables.add(_walls);
 		_collidables.add(_blocks);
 		
-		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[TAB] Menu    [Enter] Toggle All    [Space] Reset    [B] Ball", 16);
+		_info = new FlxText(20, FlxG.height - 32, FlxG.width - 40, "[TAB] Menu   [Enter] Toggle All   [Space] Reset   [B] Ball   [P] Pause", 16);
 		_info.alignment = "right";
 		_info.alpha = 0.5;
 		
 		_menu = new Menu();
 		
 		add(_bg);
+		add(_trails);
 		add(_walls);
 		add(_paddle);
 		add(_balls);
@@ -83,8 +88,6 @@ class PlayState extends FlxState
 
 	override public function update():Void
 	{
-		FlxG.collide(_balls, _collidables, ballBounce);
-		
 		#if !FLX_NO_KEYBOARD
 		if (FlxG.keys.justPressed.SPACE)
 		{
@@ -105,7 +108,19 @@ class PlayState extends FlxState
 		{
 			addBall();
 		}
+		
+		if (FlxG.keys.justPressed.P)
+		{
+			_paused = !_paused;
+		}
 		#end
+		
+		if (_paused)
+		{
+			return;
+		}
+		
+		FlxG.collide(_balls, _collidables, ballBounce);
 		
 		_info.color = Effects.screenColors ? FlxColor.BLACK : FlxColor.WHITE;
 		
@@ -145,7 +160,8 @@ class PlayState extends FlxState
 	
 	private function addBall():Void
 	{
-		_balls.add(new Ball(FlxG.width / 2, FlxG.height / 2 + 100));
+		var ball:Ball = _balls.add(new Ball(FlxG.width / 2, FlxG.height / 2 + 100));
+		_trails.add(ball.trail);
 	}
 	
 	private function toggleAll():Void

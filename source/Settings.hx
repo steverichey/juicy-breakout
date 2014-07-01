@@ -16,8 +16,8 @@ class Settings
 	public static inline var BOUNCY_LINES_DISTANCE_FROM_WALL:Int = 5;
 	public static inline var BOUNCY_LINES_WIDTH:Int = 20;
 	
-	public static inline var BALL_MAX_VELOCITY:Float = 5;
-	public static inline var BALL_MIN_VELOCITY:Float = 4;
+	public static inline var BALL_MAX_VELOCITY:Float = 300;
+	public static inline var BALL_MIN_VELOCITY:Float = 240;
 	public static inline var BALL_SIZE:Int = 15;
 	public static inline var NUM_BALLS:Int = 1;
 	

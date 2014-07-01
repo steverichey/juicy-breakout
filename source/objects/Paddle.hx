@@ -17,6 +17,8 @@ class Paddle extends GameObject
 		#if !FLX_NO_MOUSE
 		x = FlxG.mouse.x - width / 2;
 		#end
+		
+		tweenIn(x, y);
 	}
 	
 	override public function update():Void
